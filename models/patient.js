@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var studentSchema = new mongoose.Schema({
+var patientSchema = new mongoose.Schema({
   name: String,
   address: String,
   email: String,
