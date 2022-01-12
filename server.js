@@ -3,16 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
+var session  = require('express-session');
 var passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var methodOverride = require('method-override')
 require('dotenv').config();
 
-require('./config/database.js');
+require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var patientRouter = require('./routes/patient');
+var journalRouter = require('./routes/journal');
+var doctorRouter = require('./routes/doctor');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -31,12 +33,15 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'))
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/patient', patientRouter);
+app.use('/journal', journalRouter);
+app.use('/doctor', doctorRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

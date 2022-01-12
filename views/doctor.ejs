@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=user.name%> Profile</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="profile-page">
+      <div class="profile-info">
+        <a href="/">Account</a>
+        <h1>Doctor Information</h1>
+        <h3>Name:</h3>
+        <%= user.name %>
+        <h3>Email:</h3>
+        <%= user.email %>
+        <h3>Patient:</h3>
+        
+        <% if (doctor.patients.length != 0) { %>
+          <% for (let patient of doctor.patients) { %>
+          <table style="width:100%">
+            <tr>
+              <th>Name</th>
+              <th>Medications</th>
+              <th>Dosage</th>
+              <th></th>
+            </tr>
+              <tr>
+                <td><%=patient.name%></td>
+                <td><%=patient.meds%></td>
+                <td><%=patient.dosage%></td>
+                <td>
+                  <form action="/doctor/<%=patient._id%>?_method=DELETE" method="POST">
+                    <input type="Submit" value="Delete">
+                  </form>
+                </td>
+              </tr>
+          </table>
+
+          <% } %>
+        <% } else { %>
+          <p>No Patients Yet</p>
+        <% } %>
+        <h3>Journals:</h3>
+        <table style="width:100%">
+          <% if (journals) { %>
+            <tr>
+              <th>Subject</th>
+              <th>Body</th>
+            </tr>
+            <% for (let journal of journals) { %>
+              <tr>
+                <td> <%= journal.title %> </td>
+                <td> <%= journal.body %> </td>
+              </tr>
+            <% } %>
+        </table>
+        <% } else { %>
+          <p>No Patient Selected</p>
+        <% } %>
+      </div>
+      <div class="patients-info">
+        <h1>Patient Directory:</h1>
+        <form action="/doctor/newPatient" method="POST">
+            <div class="patient-directory">
+                <select name="patient" required>
+                    <% for( let patient of patients ) { %>
+                        <option value=<%=patient._id%>> <%= patient.name %> </option>
+                    <% } %>
+                </select>
+            </div>
+            <input type="Submit" value="Add Patient">
+        </form>
+        <h1>View Journal:</h1>
+        <form action="/doctor/viewPatientJournal" method="POST">
+          <div class="patient-directory">
+              <select name="patient" required>
+                  <% for( let patient of doctor.patients ) { %>
+                      <option value=<%= patient._id %>> <%= patient.name %> </option>
+                  <% } %>
+              </select>
+          </div>
+          <input type="Submit" value="View">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

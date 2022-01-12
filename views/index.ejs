@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= user.name %></title>
+      <title>Dr Diary</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <% if (user) { %>
-      <a href="/logout"><i class="material-icons left"></i>Log Out</a>
-      <p>Logged In</p>
+      <a href="/logout">Log Out</a>
       <h1>Account</h1>
-      <h2>Name</h2>
+      <h3>Name:</h3>
       <%= user.name %>
-      <h2>Email:</h2>
+      <h3>Email:</h3>
       <%= user.email %>
       <% if (!user.isDoctor) { %>
-      <form action="/updateProfile" method="POST">
-        <label> Click if you are a Doctor</label>
-        <input name="isDoctor" type= "checkbox" value="true" required>
-        <input type= "submit" value= "submit">
-      </form>
-      <a href="/patient">Profile</a>
+        <form action="/updateProfile" method="POST">
+          <label>Are you a doctor?</label>
+          <input name="isDoctor" type="checkbox" value=true required>
+          <input type="submit" value="Submit">
+        </form>
+        <a href="/patient">Patient Profile</a>
+      <% } else { %>
+        <a href="/doctor">Doctor Profile</a>
       <% } %>
     <% } else { %>
-      <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
+      <a href="/auth/google">Login with Google</a>
       <p>Not Logged In</p>
     <% } %>
-    <h1><%= title %></h1>
   </body>
 </html>
