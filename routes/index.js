@@ -43,4 +43,3 @@ router.post('/updateProfile', function(req, res) {
 })
 
 module.exports = router;
-
