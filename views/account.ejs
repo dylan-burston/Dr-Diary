@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Dr Diary</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="account-page">
+    <% if (user) { %>
+      <a href="/logout">Log Out</a>
+      <h1>Account</h1>
+      <h3>Name:</h3>
+      <%= user.name %>
+      <h3>Email:</h3>
+      <%= user.email %>
+      <% if (!user.isDoctor && user.isStatusClicked) { %>
+        <a href="/patient">Patient Profile</a>
+      <% } else { %>
+        <a href="/doctor">Doctor Profile</a>
+      <% } %>
+    <% } else { %>
+      <a href="/auth/google">Login with Google</a>
+      <p>Not Logged In</p>
+    <% } %>
+  </body>
+</html>

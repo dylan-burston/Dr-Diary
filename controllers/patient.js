@@ -12,10 +12,9 @@ function index(req, res, next) {
 }
 
 function newPatient(req, res, next) {
-    req.body._id = req.user._id;
-    req.body.name = req.user.name;
-    req.body.email = req.user.email;
-    req.body.googleId = req.user.googleId;
-    Patient.create(req.body);
+    Patient.findById(req.user._id, function (err, patient) {
+        patient.phone = req.body.phone;
+        res.redirect('/patient');
+    })
     res.redirect('/patient');
 }

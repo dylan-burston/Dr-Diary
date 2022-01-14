@@ -13,7 +13,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var patientRouter = require('./routes/patient');
-var journalRouter = require('./routes/journal');
+var journalRouter = require('./routes/journals');
 var doctorRouter = require('./routes/doctor');
 var usersRouter = require('./routes/users');
 
@@ -40,7 +40,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/patient', patientRouter);
-app.use('/journal', journalRouter);
+app.use('/journals', journalRouter);
 app.use('/doctor', doctorRouter);
 app.use('/users', usersRouter);
 

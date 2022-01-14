@@ -21,6 +21,7 @@ passport.use(new GoogleStrategy({
             name: profile.displayName,
             email: profile.emails[0].value,
             isDoctor: false,
+            isStatusClicked: false,
             googleId: profile.id
           });
           newUser.save(function(err) {

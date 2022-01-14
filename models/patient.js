@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 const journalSchema = new mongoose.Schema({
-  title: String,
   body: String,
 }, {
   timestamps: true

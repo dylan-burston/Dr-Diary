@@ -42,3 +42,13 @@ td {
   border: 1px solid black;
   text-align: center;
 }
+
+.journals {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-page {
+  display: flex;
+  flex-direction: column;
+}

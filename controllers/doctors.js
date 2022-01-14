@@ -2,18 +2,35 @@ module.exports = {
     index,
     newPatient,
     viewPatientJournal,
-    delete: deletePatient
+    delete: deletePatient,
+    setMeds,
 }
 
 let Doctor = require('../models/doctor');
 let Patient = require('../models/patient');
-let journals;
+let journals, meds, dosage;
 
 function index(req, res, next) {
-    Doctor.findById(req.user._id, function (err, doctor) {
-        Patient.find({}, function(err, patients) {
-            // console.log(patients);
-            res.render('doctor', { user: req.user, doctor, patients, journals })
+    
+    let allPatients;
+
+    Patient.find({}, function(err, patients) {
+        allPatients = patients;
+    })
+
+    Doctor.findById(req.user._id)
+    .populate('patients').exec(function(err, doctor) {
+        Patient.find({_id: {$nin: doctor.patients}})
+        .exec(function(err, myPatients) {
+            res.render('doctor', { 
+                user: req.user, 
+                doctor, 
+                journals, 
+                myPatients, 
+                patients: allPatients,
+                meds,
+                dosage
+            })
         })
     })
 }
@@ -21,7 +38,7 @@ function index(req, res, next) {
 function newPatient(req, res, next) {
     Doctor.findById(req.user._id, function (err, doctor) {
         Patient.findById(req.body.patient, function(err, patient){
-            doctor.patients.push(patient);
+            doctor.patients.push(patient._id);
             doctor.save();
             res.redirect('/doctor')
         })
@@ -42,4 +59,14 @@ function deletePatient(req, res, next) {
         doctor.save();
     })
     res.redirect('/doctor')
+}
+
+function setMeds(req, res, next) {
+    Patient.findById(req.params.patientId, function (err, patient) {
+        patient.meds = req.body.meds;
+        patient.dosage = req.body.dosage;
+        patient.save();
+        thisPatient = patient;
+    })
+    res.redirect('/doctor');
 }

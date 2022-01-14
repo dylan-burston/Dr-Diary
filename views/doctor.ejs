@@ -17,25 +17,39 @@
         
         <% if (doctor.patients.length != 0) { %>
           <% for (let patient of doctor.patients) { %>
-          <table style="width:100%">
-            <tr>
-              <th>Name</th>
-              <th>Medications</th>
-              <th>Dosage</th>
-              <th></th>
-            </tr>
+            <div class="set-patient-meds">
+              <form action="/doctor/setMeds/<%=patient._id%>" method="POST">
+                <p>Set Patient Meds and Dosage</p>
+                <% if (!patient.meds) { %>
+                  <% meds = "Medication" %>
+                  <% dosage = "Dosage" %>
+                <% } else { %>
+                  <% meds = patient.meds %>
+                  <% dosage = patient.dosage %>
+                <% } %>
+                <input name="meds" type="text" placeholder="Medications" value=<%= meds %> required>
+                <input name="dosage" type="text" placeholder="Dosage" value=<%= dosage %> required>
+                <input type="Submit" value="Submit">
+              </form>
+            </div>
+            <table style="width:100%">
               <tr>
-                <td><%=patient.name%></td>
-                <td><%=patient.meds%></td>
-                <td><%=patient.dosage%></td>
-                <td>
-                  <form action="/doctor/<%=patient._id%>?_method=DELETE" method="POST">
-                    <input type="Submit" value="Delete">
-                  </form>
-                </td>
+                <th>Name</th>
+                <th>Medications</th>
+                <th>Dosage</th>
+                <th></th>
               </tr>
-          </table>
-
+                <tr>
+                  <td><%=patient.name%></td>
+                  <td><%=patient.meds%></td>
+                  <td><%=patient.dosage%></td>
+                  <td>
+                    <form action="/doctor/<%=patient._id%>?_method=DELETE" method="POST">
+                      <input type="Submit" value="Delete">
+                    </form>
+                  </td>
+                </tr>
+            </table>
           <% } %>
         <% } else { %>
           <p>No Patients Yet</p>
@@ -44,12 +58,12 @@
         <table style="width:100%">
           <% if (journals) { %>
             <tr>
-              <th>Subject</th>
+              <th>Date</th>
               <th>Body</th>
             </tr>
             <% for (let journal of journals) { %>
               <tr>
-                <td> <%= journal.title %> </td>
+                <td> <%=journal.createdAt.toDateString()%> <%=journal.createdAt.toLocaleTimeString() %> </td>
                 <td> <%= journal.body %> </td>
               </tr>
             <% } %>

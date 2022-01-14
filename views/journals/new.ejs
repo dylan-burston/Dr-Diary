@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Journal</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/journals" method="POST">
+        <div class="journal-form">
+        <% let today = new Date() %>
+        <h2><%= today.toDateString() %> <%= today.toLocaleTimeString() %></h2>
+        <textarea name="body" rows="10" cols="25" placeholder="Entry" required></textarea>
+        <input type="submit" value="Submit">
+        </div>
+    </form>
+  </body>
+</html>

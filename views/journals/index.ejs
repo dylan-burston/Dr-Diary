@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=user.name%> Profile</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="journals">
+        <h1>Journals</h1>
+        <% if (patient && patient.journals.length != 0) { %>
+            <% for (let journal of patient.journals) { %>
+            <a href="/journals/<%=journal._id%>"><%=journal.createdAt.toDateString()%> <%=journal.createdAt.toLocaleTimeString() %></a>
+            <% } %>
+        <% } else { %>
+            No Journals Yet..
+        <% } %>
+    </div>
+    </body>
+</html>

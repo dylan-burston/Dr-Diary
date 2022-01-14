@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Dr Diary</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%=journal.createdAt.toDateString()%> <%=journal.createdAt.toLocaleTimeString() %></h1>
+    <p><%=journal.body%></p>
+      <a href="/journals/<%=journal._id%>/edit">Edit</a>
+      <form action="/journals/<%=journal._id%>?_method=DELETE" method="POST">
+        <input type="Submit" value="Delete">
+      </form>
+  </body>
+</html>

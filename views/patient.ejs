@@ -7,7 +7,11 @@
   <body>
     <div class="profile-page">
       <div class="profile-info">
-        <a href="/">Account</a>
+        <p>
+          <a href="/">Account</a>
+          <a href="/journals">All Journals</a>
+          <a href="/journals/new">New Journal</a>
+        </p>
         <h1>Patient Information</h1>
         <h3>Name:</h3>
         <%= user.name %>
@@ -24,26 +28,9 @@
           <form action="/patient/new" method="POST">
             <div class="patient-form">
               <input name="phone" type="text" placeholder="Phone Number" required>
-              <input name="meds" type="text" placeholder="Medications" required>
-              <input name="dosage" type="text" placeholder="Dosage" required>
               <input type="submit" value="Submit">
             </div>
           </form>
-        <% } %>
-      </div>
-      <div class="journals">
-        <h1>Journals</h1>
-        <form action="/journal/new" method="POST">
-          <div class="journal-form">
-            <input name="title" type="text" placeholder="Subject" required>
-            <textarea name="body" rows="10" cols="25" placeholder="Entry" required></textarea>
-            <input type="submit" value="Submit">
-          </div>
-        </form>
-        <% if (patient && patient.journals.length != 0) { %>
-          <% for (let journal of patient.journals) { %>
-            <a href="/journal/<%=journal._id%>"><%=journal.title%></a>
-          <% } %>
         <% } %>
       </div>
     </div>
