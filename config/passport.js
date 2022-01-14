@@ -9,9 +9,9 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK
   },
-  function(accessToken, refreshToken, profile, cb) {
+  async function(accessToken, refreshToken, profile, cb) {
 
-    User.findOne({ 'googleId': profile.id }, function(err, user) {
+    await User.findOne({ 'googleId': profile.id }, function(err, user) {
         if (err) return cb(err);
         if (user) {
           return cb(null, user);
