@@ -1,6 +1,11 @@
 # Dr.Diary 
 
-![clipart](desktop/Dr-Diary/public/images/journal.png)
+<p align="center">
+  <img width="200" height="200" src="../Dr-Diary/public/images/journal.png">
+</p>
+
+## Objective 
+Build a full-stack application using Node/Express and MongoDB from the ground up. 
 
 ## Purpose of Application
 Medications are currently prescribed on a trial and error basis to patients. Depending on the type of medication and its half-life it can potentially take years to identify the proper med and dosage for that patient. Dr.Diary allows patients to track their prescriptions and make daily journals (free writing) and notes (specified by Dr) that their Dr has access to - providing LIVE data for the health care professional. The more relevant data means a quicker identification process! 
@@ -10,11 +15,11 @@ Medications are currently prescribed on a trial and error basis to patients. Dep
 ## Initial Designs
 Wire frame of the initial design 
 <br><br>
-![Wire Frame](Dr-Diary/public/images/WireFrame.png)
+![Wire Frame](../Dr-Diary/public/images/WireFrame.png)
 <br><br>
-ERD
+ERD showing the relationship between my data 
 <br><br>
-![ERD](https://github.com/dylan-burston/Dr-Diary/public/images/ERD.png)
+![ERD](../Dr-Diary/public/images/ERD.png)
 
 ## Screenshots 
 <br><br>
@@ -45,7 +50,7 @@ ERD
 
 
 ## Let's Play!
-Click <a href="https://pages.git.generalassemb.ly/dburston/War-Card-Game/" target="_blank" rel="noopener noreferrer">here</a> to play the game. 
+Click <a href="https://dctrdiary.herokuapp.com/" target="_blank" rel="noopener noreferrer">here</a> to access the app. 
 <br><br>
 ## About the Creator 
 This is the first project using the MEN stack with RESTful routing by **Dylan Burston.**
