@@ -19,14 +19,29 @@ Wire frame of the initial design
 <br><br>
 ERD showing the relationship between my data 
 <br><br>
-![ERD](../Dr-Diary/public/images/ERD.png)
+![ERD](../Dr-Diary/public/images/ERD.jpg)
 
 ## Screenshots 
-<br><br>
-<p align="center">
-  <img width="500" src="card-deck-css/images/inplay.jpeg">
-</p>
 
+- You can view all your journals as a patient here organized by the last EDITED date. 
+<br><br>
+![alljournals](../Dr-Diary/public/images/alljournals.png)
+<br><br>
+- Full view of the doctor information page. From this page the doctor has full access to a list of ALL of his patients and their respective journals on the right drop down menus.
+<br><br>
+![drinfo](../Dr-Diary/public/images/doctorinfo.png)
+<br><br>
+- Log out screen. You can also view the account you are currently signed in as. 
+<br><br>
+![login](../Dr-Diary/public/images/login.png)
+<br><br>
+- Here is where you write your patient journal that your Dr. has access to. Click "Submit" when created. 
+<br><br>
+![newjournal](../Dr-Diary/public/images/newjournal.png)
+<br><br>
+- The patient information screen. 
+<br><br>
+![patient](../Dr-Diary/public/images/patientscreen.png)
 <br><br>
 
 ## Technologies Used
@@ -42,6 +57,7 @@ ERD showing the relationship between my data
 - CSS 
 - JAVASCRIPT 
 - GIT 
+- mongoDB Compass
 
 ## Future Development 
 - Add functionality so that in order for a Dr. to log in with special permission they must input their physician registration number from the Ministry of Health 
@@ -49,7 +65,7 @@ ERD showing the relationship between my data
 - Functionality to distinguish patient meds on Dr. account page 
 
 
-## Let's Play!
+## Use the app on Heroku! 
 Click <a href="https://dctrdiary.herokuapp.com/" target="_blank" rel="noopener noreferrer">here</a> to access the app. 
 <br><br>
 ## About the Creator 
