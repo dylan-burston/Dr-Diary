@@ -5,7 +5,7 @@
 </p>
 
 ## Objective 
-Build a full-stack application using Node/Express and MongoDB from the ground up. 
+Build a full-stack CRUD application using Node/Express and MongoDB from the ground up. 
 
 ## Purpose of Application
 Medications are currently prescribed on a trial and error basis to patients. Depending on the type of medication and its half-life it can potentially take years to identify the proper med and dosage for that patient. Dr.Diary allows patients to track their prescriptions and make daily journals (free writing) and notes (specified by Dr) that their Dr has access to - providing LIVE data for the health care professional. The more relevant data means a quicker identification process! 
@@ -13,33 +13,37 @@ Medications are currently prescribed on a trial and error basis to patients. Dep
 **View my Trello board [here](https://trello.com/b/X8p4Mr0t/drdiary)!**
 
 ## Initial Designs
-Wire frame of the initial design 
+- Wire frame of the initial design -> during development I realized that the below design would not work effectively for the purpose of the application. The patient side uses RESTful routing while the Dr. side does not. 
 <br><br>
 ![Wire Frame](/public/images/WireFrame.png)
 <br><br>
-ERD showing the relationship between my data 
+- ERD showing the relationship between my data.
 <br><br>
 ![ERD](/public/images/ERD.jpg)
 
-## Screenshots 
+## Models
+<br>
 
-- You can view all your journals as a patient here organized by the last EDITED date. 
+- The Dr. Model -> patients are referenced within the doctor schema in order to populate the updated patient info on the Dr account side. 
 <br><br>
-![alljournals](/public/images/alljournals.png)
+![drmodel](/public/images/drmodel.png)
 <br><br>
-- Full view of the doctor information page. From this page the doctor has full access to a list of ALL of his patients and their respective journals on the right drop down menus.
+- The patient Model -> journals are embedded within the patient schema to redirect. 
+<br><br>
+![patientmodel](/public/images/patientmodel.png)
+
+## Screenshots 
+<br>
+
+- Full view of the doctor information page. From this page the doctor has full access to a list of their patients and their respective journals on the right drop down menus.
 <br><br>
 ![drinfo](/public/images/doctorinfo.png)
-<br><br>
-- Log out screen. You can also view the account you are currently signed in as. 
-<br><br>
-![login](/public/images/login.png)
 <br><br>
 - Here is where you write your patient journal that your Dr. has access to. Click "Submit" when created. 
 <br><br>
 ![newjournal](/public/images/newjournal.png)
 <br><br>
-- The patient information screen. 
+- The patient information screen. The patient has no access to modify their medications or dosage strength, this is only available with Dr. permission on the other side. 
 <br><br>
 ![patient](/public/images/patientscreen.png)
 <br><br>
