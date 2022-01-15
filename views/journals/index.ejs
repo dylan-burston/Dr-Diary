@@ -6,6 +6,10 @@
   </head>
   <body>
     <div class="journals">
+      <p>
+        <a href="/">Account</a>
+        <a href="/journals/new">New Journal</a>
+      </p>
         <h1>Journals</h1>
         <% if (patient && patient.journals.length != 0) { %>
             <% for (let journal of patient.journals) { %>

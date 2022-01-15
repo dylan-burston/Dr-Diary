@@ -7,6 +7,10 @@
   <body>
     <form action="/journals" method="POST">
         <div class="journal-form">
+        <p>
+          <a href="/">Account</a>
+          <a href="/journals">All Journals</a>
+        </p>
         <% let today = new Date() %>
         <h2><%= today.toDateString() %> <%= today.toLocaleTimeString() %></h2>
         <textarea name="body" rows="10" cols="25" placeholder="Entry" required></textarea>
