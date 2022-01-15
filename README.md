@@ -1,7 +1,7 @@
 # Dr.Diary 
 
 <p align="center">
-  <img width="200" height="200" src="../Dr-Diary/public/images/journal.png">
+  <img width="200" height="200" src="public/images/journal.png">
 </p>
 
 ## Objective 
