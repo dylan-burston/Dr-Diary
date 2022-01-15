@@ -15,33 +15,33 @@ Medications are currently prescribed on a trial and error basis to patients. Dep
 ## Initial Designs
 Wire frame of the initial design 
 <br><br>
-![Wire Frame](../Dr-Diary/public/images/WireFrame.png)
+![Wire Frame](/public/images/WireFrame.png)
 <br><br>
 ERD showing the relationship between my data 
 <br><br>
-![ERD](../Dr-Diary/public/images/ERD.jpg)
+![ERD](/public/images/ERD.jpg)
 
 ## Screenshots 
 
 - You can view all your journals as a patient here organized by the last EDITED date. 
 <br><br>
-![alljournals](../Dr-Diary/public/images/alljournals.png)
+![alljournals](/public/images/alljournals.png)
 <br><br>
 - Full view of the doctor information page. From this page the doctor has full access to a list of ALL of his patients and their respective journals on the right drop down menus.
 <br><br>
-![drinfo](../Dr-Diary/public/images/doctorinfo.png)
+![drinfo](/public/images/doctorinfo.png)
 <br><br>
 - Log out screen. You can also view the account you are currently signed in as. 
 <br><br>
-![login](../Dr-Diary/public/images/login.png)
+![login](/public/images/login.png)
 <br><br>
 - Here is where you write your patient journal that your Dr. has access to. Click "Submit" when created. 
 <br><br>
-![newjournal](../Dr-Diary/public/images/newjournal.png)
+![newjournal](/public/images/newjournal.png)
 <br><br>
 - The patient information screen. 
 <br><br>
-![patient](../Dr-Diary/public/images/patientscreen.png)
+![patient](/public/images/patientscreen.png)
 <br><br>
 
 ## Technologies Used
