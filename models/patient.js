@@ -9,7 +9,6 @@ const journalSchema = new mongoose.Schema({
 var patientSchema = new mongoose.Schema({
   name: String,
   email: String,
-  phone: String,
   address: String,
   meds: String,
   dosage: String,

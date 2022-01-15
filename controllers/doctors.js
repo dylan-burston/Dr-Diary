@@ -35,7 +35,7 @@ function index(req, res, next) {
     })
 }
 
-function newPatient(req, res, next) {
+function newPatient(req, res) {
     Doctor.findById(req.user._id, function (err, doctor) {
         Patient.findById(req.body.patient, function(err, patient){
             doctor.patients.push(patient._id);
@@ -45,15 +45,14 @@ function newPatient(req, res, next) {
     })
 }
 
-function viewPatientJournal(req, res, next) {
+function viewPatientJournal(req, res) {
     Patient.findById(req.body.patient, function(err, patient) {
         journals = patient.journals;
     })
     res.redirect('/doctor');
 }
 
-function deletePatient(req, res, next) {
-    console.log(req.params.patientId);
+function deletePatient(req, res) {
     Doctor.findById(req.user._id, function (err, doctor) {
         doctor.patients = doctor.patients.filter(patient => patient._id != req.params.patientId);
         doctor.save();
@@ -61,12 +60,11 @@ function deletePatient(req, res, next) {
     res.redirect('/doctor')
 }
 
-function setMeds(req, res, next) {
+function setMeds(req, res) {
     Patient.findById(req.params.patientId, function (err, patient) {
         patient.meds = req.body.meds;
         patient.dosage = req.body.dosage;
         patient.save();
-        thisPatient = patient;
     })
     res.redirect('/doctor');
 }

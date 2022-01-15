@@ -17,21 +17,10 @@
         <%= user.name %>
         <h3>Email:</h3>
         <%= user.email %>
-        <% if (patient) { %>
-          <h3>Phone Number:</h3>
-          <%= patient.phone %>
-          <h3>Medications:</h3>
-          <%= patient.meds %>
-          <h3>Dosage:</h3>
-          <%= patient.dosage %>
-        <% } else { %>
-          <form action="/patient/new" method="POST">
-            <div class="patient-form">
-              <input name="phone" type="text" placeholder="Phone Number" required>
-              <input type="submit" value="Submit">
-            </div>
-          </form>
-        <% } %>
+        <h3>Medications:</h3>
+        <%= patient.meds %>
+        <h3>Dosage:</h3>
+        <%= patient.dosage %>
       </div>
     </div>
   </body>
